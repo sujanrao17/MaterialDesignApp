@@ -4,6 +4,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +17,11 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.codeacid.com.clone.Adapter.PagerAdapter;
 import main.codeacid.com.clone.Adapter.RVAdapter;
+import main.codeacid.com.clone.Fragments.TabFragment1;
+import main.codeacid.com.clone.Fragments.TabFragment2;
+import main.codeacid.com.clone.Fragments.TabFragment3;
 import main.codeacid.com.clone.R;
 import main.codeacid.com.clone.helpers.FontManager;
 import main.codeacid.com.clone.model.*;
@@ -32,25 +38,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.app_bar_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        InitializeTabs();
+        //recyclerview initialization
+       //InitialiseData();
+//        RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
+//        rv.setHasFixedSize(true);
+//        RVAdapter recyclerViewAdapter = new RVAdapter(persons);
+//        rv.setAdapter(recyclerViewAdapter);
+//        LinearLayoutManager llm = new LinearLayoutManager(this);
+//        rv.setLayoutManager(llm);
 
-
-
-        initialise();
-        RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
-        rv.setHasFixedSize(true);
-
-        RVAdapter adapter = new RVAdapter(persons);
-        rv.setAdapter(adapter);
-
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
-
-
-
-
-
-
+        //floating button initialization
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,9 +59,27 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void InitializeTabs(){
 
 
-    private void initialise() {
+
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final PagerAdapter adapter = new PagerAdapter
+                (getSupportFragmentManager());
+        adapter.addFragment(new TabFragment1(),"Local");
+        adapter.addFragment(new TabFragment2(),"Global");
+        adapter.addFragment(new TabFragment3(),"Sports");
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
+
+
+
+    }
+
+
+    private void InitialiseData() {
 
             persons = new ArrayList<>();
             persons.add(new Person("Emma Wilson", "23 years old", ic_launcher));
