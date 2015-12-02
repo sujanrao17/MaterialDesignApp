@@ -31,22 +31,18 @@ import static main.codeacid.com.clone.R.mipmap.ic_launcher;
 public class MainActivity extends AppCompatActivity {
 
 
-    List<Person> persons;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_bar_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
+
         InitializeTabs();
-        //recyclerview initialization
-       //InitialiseData();
-//        RecyclerView rv = (RecyclerView) findViewById(R.id.rv);
-//        rv.setHasFixedSize(true);
-//        RVAdapter recyclerViewAdapter = new RVAdapter(persons);
-//        rv.setAdapter(recyclerViewAdapter);
-//        LinearLayoutManager llm = new LinearLayoutManager(this);
-//        rv.setLayoutManager(llm);
 
         //floating button initialization
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -74,19 +70,10 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-
-
     }
 
 
-    private void InitialiseData() {
 
-            persons = new ArrayList<>();
-            persons.add(new Person("Emma Wilson", "23 years old", ic_launcher));
-            persons.add(new Person("Lavery Maiss", "25 years old", ic_launcher));
-            persons.add(new Person("Lillie Watts", "35 years old", ic_launcher));
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
