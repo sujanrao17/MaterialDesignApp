@@ -43,7 +43,15 @@ public class TabFragment1 extends Fragment {
         persons = new ArrayList<>();
         persons.add(new Person("Emma Wilson", "23 years old", ic_launcher));
         persons.add(new Person("Lavery Maiss", "25 years old", ic_launcher));
+        persons.add(new Person("Lillie Watts", "35  old", ic_launcher));
         persons.add(new Person("Lillie Watts", "35 years old", ic_launcher));
+        persons.add(new Person("Lillie Watts", "35  old", ic_launcher));
+        persons.add(new Person("Lillie ", "35 years old", ic_launcher));
+        persons.add(new Person(" Watts", "35 years ", ic_launcher));
+        persons.add(new Person("Lillie Watts", "35  old", ic_launcher));
+        persons.add(new Person("Lillie ", "35  old", ic_launcher));
+        persons.add(new Person("Lillie Watts", "35 years ", ic_launcher));
+
 
     }
 
