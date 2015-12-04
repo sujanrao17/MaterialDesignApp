@@ -46,11 +46,17 @@ public class MainActivity extends AppCompatActivity {
 
         InitializeTabs();
 
-        //////////////////////
+
+        // Initialize Listview and drawer
+
+        View view = View.inflate(getBaseContext(), R.layout.drawer_layout, null);
+
+
         mPlanetTitles = new String[]{"sujan", "sujan ", "sujna"};
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
+        mDrawerList.addHeaderView(view);
         // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, mPlanetTitles));
